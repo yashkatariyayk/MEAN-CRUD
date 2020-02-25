@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">FistName</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="FistName"
+            #Name
+          />
+        </div>
+        <div
+          *ngIf="
+            angForm.controls['Name'].invalid &&
+            (angForm.controls['Name'].dirty || angForm.controls['Name'].touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="angForm.controls['Name'].errors.required">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">Branch</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Branch"
+            #Branch
+          />
+        </div>
+        <div
+          *ngIf="
+            angForm.controls['Branch'].invalid &&
+            (angForm.controls['Branch'].dirty ||
+              angForm.controls['Branch'].touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="angForm.controls['Branch'].errors.required">
+            Branch is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Email"
+            #Email
+          />
+        </div>
+        <div
+          *ngIf="
+            angForm.controls['Email'].invalid &&
+            (angForm.controls['Email'].dirty ||
+              angForm.controls['Email'].touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="angForm.controls['Email'].errors.required">
+            Email is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Phone"
+            #Phone
+          />
+        </div>
+        <div
+          *ngIf="
+            angForm.controls['Phone'].invalid &&
+            (angForm.controls['Phone'].dirty ||
+              angForm.controls['Phone'].touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="angForm.controls['Phone'].errors.required">
+            Phone is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button
+            type="submit"
+            (click)="
+              addDetail(Name.value, Branch.value, Email.value, Phone.value)
+            "
+            [disabled]="angForm.pristine || angForm.invalid"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

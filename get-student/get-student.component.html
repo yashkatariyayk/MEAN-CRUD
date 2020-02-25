@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Branch</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let student of Students">
+      <td>{{ student.Name }}</td>
+      <td>{{ student.Branch }}</td>
+      <td>{{ student.Email }}</td>
+      <td>{{ student.Phone }}</td>
+      <nav>
+        <button class="btn btn-primary" [routerLink]="['/edit', student._id]">
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="deleteStudent(student._id)">
+          Delete
+        </button>
+      </nav>
+    </tr>
+  </tbody>
+</table>
+<!-- <router-outlet></router-outlet> -->
